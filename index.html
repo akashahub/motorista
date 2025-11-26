@@ -1,0 +1,2163 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipe Simon | Motorista Executivo Particular - Salvador, Rio, SP</title>
+    <meta name="description" content="Motorista particular executivo de confiança. Serviço premium com discrição e pontualidade em Salvador, Rio de Janeiro, São Paulo e todo Brasil. Agende agora!">
+    <meta name="keywords" content="motorista particular, motorista executivo, uber executivo, transfer aeroporto, motorista salvador, motorista são paulo, motorista rio de janeiro">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #B8960C;
+            --black: #0A0A0A;
+            --black-light: #1A1A1A;
+            --black-medium: #2A2A2A;
+            --white: #FFFFFF;
+            --gray: #888888;
+            --gray-light: #CCCCCC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 50px;
+            background: linear-gradient(135deg, var(--black) 0%, var(--black-light) 50%, var(--black) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+        }
+
+        .hero-badge i {
+            color: var(--gold);
+        }
+
+        .hero-badge span {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-light);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .driver-photo-container {
+            position: relative;
+        }
+
+        .driver-photo {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--gold);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .photo-decoration {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border: 2px dashed var(--gold);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 30s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .verified-badge i {
+            font-size: 1.2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 50px;
+            background: var(--black-light);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-subtitle {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .experience-badge .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .experience-badge .text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--gray-light);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--black-medium);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .feature-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .feature-item span {
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 50px;
+            background: var(--black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, var(--black-light), var(--black-medium));
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gold);
+        }
+
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            color: var(--black);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li i {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        /* Locations Section */
+        .locations {
+            padding: 120px 50px;
+            background: var(--black-light);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: linear-gradient(145deg, var(--black-medium), var(--black));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .location-card:hover::after {
+            opacity: 1;
+        }
+
+        .location-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location-icon i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .location-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Differentials Section */
+        .differentials {
+            padding: 120px 50px;
+            background: var(--black);
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .differential-card {
+            background: var(--black-light);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .differential-card:hover {
+            background: rgba(212, 175, 55, 0.05);
+            border-color: var(--gold);
+            transform: translateY(-10px);
+        }
+
+        .differential-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transform: rotate(45deg);
+        }
+
+        .differential-icon i {
+            font-size: 1.8rem;
+            color: var(--black);
+            transform: rotate(-45deg);
+        }
+
+        .differential-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .differential-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 50px;
+            background: linear-gradient(135deg, var(--black-light), var(--black-medium));
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--black);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-stars i {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--gray-light);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .author-info h5 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info span {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 120px 50px;
+            background: var(--black);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--black-light);
+            border-radius: 30px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            transform: scale(1.05);
+            background: linear-gradient(145deg, var(--black-light), var(--black-medium));
+        }
+
+        .pricing-card.featured::before {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .pricing-icon i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .pricing-price {
+            margin-bottom: 30px;
+        }
+
+        .pricing-price .from {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .pricing-price .amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .pricing-price .period {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 30px;
+            list-style: none;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--gray-light);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li i {
+            color: var(--gold);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 50px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--black);
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-dark:hover {
+            background: var(--black-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--black);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 50px;
+            background: var(--black-light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info > p {
+            color: var(--gray);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: var(--black);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .contact-method:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-method-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-method-icon i {
+            font-size: 1.5rem;
+            color: var(--black);
+        }
+
+        .contact-method-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-method-info span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .contact-form-container {
+            background: var(--black);
+            border-radius: 30px;
+            padding: 50px;
+        }
+
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--gray-light);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 20px;
+            background: var(--black-light);
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            color: var(--white);
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--black-medium);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group select option {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            padding: 80px 50px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-brand .logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--black-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            background: var(--white);
+            color: var(--black);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: var(--gold);
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu ul li {
+            margin: 25px 0;
+        }
+
+        .mobile-menu ul li a {
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-grid,
+            .locations-grid,
+            .testimonials-grid,
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .differentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .hero {
+                padding: 120px 30px 80px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 40px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .driver-photo {
+                width: 300px;
+                height: 300px;
+            }
+
+            .photo-decoration {
+                width: 350px;
+                height: 350px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .about {
+                padding: 80px 30px;
+            }
+
+            .services {
+                padding: 80px 30px;
+            }
+
+            .locations {
+                padding: 80px 30px;
+            }
+
+            .differentials {
+                padding: 80px 30px;
+            }
+
+            .testimonials {
+                padding: 80px 30px;
+            }
+
+            .pricing {
+                padding: 80px 30px;
+            }
+
+            .cta {
+                padding: 80px 30px;
+            }
+
+            .contact {
+                padding: 80px 30px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .services-grid,
+            .locations-grid,
+            .testimonials-grid,
+            .pricing-grid,
+            .differentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .experience-badge {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .driver-photo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .photo-decoration {
+                width: 300px;
+                height: 300px;
+            }
+
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+
+            .service-card,
+            .pricing-card {
+                padding: 30px 20px;
+            }
+
+            .footer {
+                padding: 60px 20px 30px;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">FILIPE <span>SIMON</span></a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#regioes">Regiões</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de saber mais sobre seus serviços de motorista executivo." class="nav-cta" target="_blank">
+            <i class="fab fa-whatsapp"></i> Agendar Agora
+        </a>
+        <div class="menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="#inicio" onclick="toggleMobileMenu()">Início</a></li>
+            <li><a href="#sobre" onclick="toggleMobileMenu()">Sobre</a></li>
+            <li><a href="#servicos" onclick="toggleMobileMenu()">Serviços</a></li>
+            <li><a href="#regioes" onclick="toggleMobileMenu()">Regiões</a></li>
+            <li><a href="#depoimentos" onclick="toggleMobileMenu()">Depoimentos</a></li>
+            <li><a href="#contato" onclick="toggleMobileMenu()">Contato</a></li>
+            <li style="margin-top: 20px;">
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de agendar um serviço." class="btn-primary" target="_blank" style="display: inline-flex;">
+                    <i class="fab fa-whatsapp"></i> Agendar Agora
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>Serviço Executivo Premium</span>
+                </div>
+                <h1>
+                    Motorista Particular
+                    <span>Executivo</span>
+                </h1>
+                <p class="hero-subtitle">Discrição, Pontualidade e Excelência</p>
+                <p class="hero-description">
+                    Experiência premium em transporte executivo com total sigilo, conforto e segurança. 
+                    Atendimento personalizado para executivos, empresários e clientes exigentes em todo o Brasil.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de solicitar um serviço de motorista executivo." class="btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Solicitar Agora
+                    </a>
+                    <a href="#servicos" class="btn-secondary">
+                        <i class="fas fa-car"></i> Ver Serviços
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5.000+</span>
+                        <span class="stat-label">Clientes Atendidos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Satisfação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="driver-photo-container">
+                    <div class="photo-decoration"></div>
+                    <img src="https://i.ibb.co/7JwtnCrv/Whats-App-Image-2025-11-26-at-13-20-51.jpg" alt="Filipe Simon - Motorista Executivo" class="driver-photo">
+                    <div class="verified-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="section-header">
+            <span class="section-subtitle">Conheça</span>
+            <h2 class="section-title">Filipe Simon</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://i.ibb.co/7JwtnCrv/Whats-App-Image-2025-11-26-at-13-20-51.jpg" alt="Filipe Simon" class="about-img">
+                <div class="experience-badge">
+                    <span class="number">10+</span>
+                    <span class="text">Anos de Experiência</span>
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Excelência e Compromisso em Cada Viagem</h3>
+                <p>
+                    Sou Filipe Simon, motorista executivo particular com mais de uma década de experiência 
+                    atendendo clientes de alto padrão. Minha missão é proporcionar uma experiência de 
+                    transporte incomparável, onde cada detalhe é pensado para seu conforto e segurança.
+                </p>
+                <p>
+                    Trabalho com total discrição e confidencialidade, atendendo executivos, empresários, 
+                    celebridades e todos que valorizam um serviço premium. Minha reputação foi construída 
+                    sobre pilares de pontualidade absoluta, profissionalismo e atenção aos detalhes.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>CNH Categoria E</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Direção Defensiva</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-language"></i>
+                        <span>Inglês Fluente</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Antecedentes Limpos</span>
+                    </div>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de conhecer melhor seus serviços." class="btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Fale Comigo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="section-header">
+            <span class="section-subtitle">Nossos Serviços</span>
+            <h2 class="section-title">Soluções em Transporte Executivo</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <h3>Transfer Aeroporto</h3>
+                <p>Chegue ou parta com tranquilidade. Monitoramento de voos em tempo real.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Monitoramento de voo</li>
+                    <li><i class="fas fa-check"></i> Espera sem custo extra</li>
+                    <li><i class="fas fa-check"></i> Placa de identificação</li>
+                    <li><i class="fas fa-check"></i> Auxílio com bagagens</li>
+                    <li><i class="fas fa-check"></i> Wi-Fi e água gelada</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de agendar um transfer aeroporto." class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Executivo Diária</h3>
+                <p>Motorista à disposição durante todo o dia para suas demandas corporativas.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Motorista dedicado</li>
+                    <li><i class="fas fa-check"></i> Flexibilidade total</li>
+                    <li><i class="fas fa-check"></i> Reuniões e eventos</li>
+                    <li><i class="fas fa-check"></i> Discrição garantida</li>
+                    <li><i class="fas fa-check"></i> Veículo premium</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de contratar uma diária executiva." class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h3>Viagens Intermunicipais</h3>
+                <p>Transporte seguro e confortável entre cidades com total privacidade.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Rotas otimizadas</li>
+                    <li><i class="fas fa-check"></i> Paradas estratégicas</li>
+                    <li><i class="fas fa-check"></i> Ar-condicionado</li>
+                    <li><i class="fas fa-check"></i> Carregadores USB</li>
+                    <li><i class="fas fa-check"></i> Seguro completo</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de fazer um orçamento para viagem intermunicipal." class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-glass-cheers"></i>
+                </div>
+                <h3>Eventos e Casamentos</h3>
+                <p>Elegância e pontualidade para os momentos mais especiais da sua vida.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Veículo decorado</li>
+                    <li><i class="fas fa-check"></i> Motorista uniformizado</li>
+                    <li><i class="fas fa-check"></i> Champagne incluso</li>
+                    <li><i class="fas fa-check"></i> Fotos no veículo</li>
+                    <li><i class="fas fa-check"></i> Tapete vermelho</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de um orçamento para casamento/evento." class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h3>Corridas Urbanas</h3>
+                <p>Deslocamentos rápidos e eficientes pela cidade com todo conforto.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Resposta imediata</li>
+                    <li><i class="fas fa-check"></i> Conhecimento local</li>
+                    <li><i class="fas fa-check"></i> Preço fixo</li>
+                    <li><i class="fas fa-check"></i> Sem surpresas</li>
+                    <li><i class="fas fa-check"></i> Pagamento facilitado</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Preciso de uma corrida urbana." class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Contrato Empresarial</h3>
+                <p>Soluções personalizadas para empresas com atendimento exclusivo.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Pacotes mensais</li>
+                    <li><i class="fas fa-check"></i> Faturamento</li>
+                    <li><i class="fas fa-check"></i> Relatórios detalhados</li>
+                    <li><i class="fas fa-check"></i> Prioridade no atendimento</li>
+                    <li><i class="fas fa-check"></i> Descontos especiais</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Tenho interesse em um contrato empresarial." class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations" id="regioes">
+        <div class="section-header">
+            <span class="section-subtitle">Área de Atendimento</span>
+            <h2 class="section-title">Onde Atendemos</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="locations-grid">
+            <div class="location-card">
+                <span class="location-badge">Base</span>
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Salvador - BA</h3>
+                <p>Base principal de operações com atendimento 24h</p>
+            </div>
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Rio de Janeiro - RJ</h3>
+                <p>Atendimento completo na cidade maravilhosa</p>
+            </div>
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>São Paulo - SP</h3>
+                <p>Cobertura total na maior metrópole do país</p>
+            </div>
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Belo Horizonte - MG</h3>
+                <p>Serviço executivo na capital mineira</p>
+            </div>
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Porto Alegre - RS</h3>
+                <p>Atendimento premium no sul do Brasil</p>
+            </div>
+            <div class="location-card">
+                <div class="location-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Florianópolis - SC</h3>
+                <p>Serviço exclusivo na ilha da magia</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <p style="color: var(--gray); margin-bottom: 20px;">Não encontrou sua cidade? Entre em contato!</p>
+            <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de saber se você atende minha região." class="btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Consultar Disponibilidade
+            </a>
+        </div>
+    </section>
+
+    <!-- Differentials Section -->
+    <section class="differentials">
+        <div class="section-header">
+            <span class="section-subtitle">Por Que Nos Escolher</span>
+            <h2 class="section-title">Nossos Diferenciais</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="differentials-grid">
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <h4>Discrição Total</h4>
+                <p>Sigilo absoluto sobre rotas, conversas e passageiros</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>Pontualidade</h4>
+                <p>Chegamos sempre antes do horário combinado</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Segurança</h4>
+                <p>Veículo rastreado e seguro completo</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h4>Veículo Premium</h4>
+                <p>Carros executivos sempre impecáveis</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4>Atendimento 24h</h4>
+                <p>Disponível a qualquer hora do dia ou noite</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h4>Wi-Fi a Bordo</h4>
+                <p>Conectividade durante todo o trajeto</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h4>Climatização</h4>
+                <p>Temperatura ideal para seu conforto</p>
+            </div>
+            <div class="differential-card">
+                <div class="differential-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h4>Pagamento Flexível</h4>
+                <p>PIX, cartão, transferência ou faturamento</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="depoimentos">
+        <div class="section-header">
+            <span class="section-subtitle">Depoimentos</span>
+            <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <span class="testimonial-quote">"</span>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Profissional excepcional! Utilizo os serviços do Filipe há 3 anos para todas as minhas viagens 
+                        de negócios. Pontualidade e discrição impecáveis."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RC</div>
+                        <div class="author-info">
+                            <h5>Roberto Carvalho</h5>
+                            <span>CEO, Empresa XYZ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="testimonial-quote">"</span>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Contratei para meu casamento e superou todas as expectativas. O veículo impecável e 
+                        o atendimento fizeram toda a diferença no nosso dia especial."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info">
+                            <h5>Ana Maria Santos</h5>
+                            <span>Noiva Satisfeita</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="testimonial-quote">"</span>
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Nossa empresa fechou contrato mensal e a qualidade do serviço é consistente. 
+                        Recomendo para qualquer corporação que valorize excelência."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PL</div>
+                        <div class="author-info">
+                            <h5>Paulo Lima</h5>
+                            <span>Diretor Financeiro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="section-header">
+            <span class="section-subtitle">Investimento</span>
+            <h2 class="section-title">Tabela de Serviços</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h3>Corrida Urbana</h3>
+                <p class="subtitle">Deslocamentos na cidade</p>
+                <div class="pricing-price">
+                    <span class="from">A partir de</span>
+                    <span class="amount">R$ 80</span>
+                    <span class="period">por corrida</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Veículo executivo</li>
+                    <li><i class="fas fa-check"></i> Água e Wi-Fi</li>
+                    <li><i class="fas fa-check"></i> Ar-condicionado</li>
+                    <li><i class="fas fa-check"></i> Pagamento flexível</li>
+                </ul>
+                <a href="https://wa.me/5571992784660?text=Olá Filipe! Gostaria de solicitar uma corrida urbana." class="btn-primary" style="width: 100%; justify-content: center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar
+                </a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-icon">
+                    <i class="fas fa-plane">
